@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>@ViewData["Title"]</title>
+	<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body style="width: 2300px">
+	<div class="header navbar">
+		<div class="container-fluid" style="padding:5px 0">
+			<div id="navbarSupportedContent">
+				<ul style="list-style-type:none; margin-bottom:0; padding-left:0">
+					<li id="Index" class="nav-item" style="font-weight:bold">@ViewBag.FullAptekaName (@ViewBag.aptekaId)</li>
+					<li id="Index" class="nav-item">Предельные надбавки: <span style="font-weight:bold">@ViewBag.RegionName, @ViewBag.TaxType</span></li>
+				</ul>
+			</div>
+			<div id="logout-link">
+				@await Html.PartialAsync("_LoginPartial")
+			</div>
+		</div>
+	</div>
+	<div class="site-pagination container-fluid form-group form-inline mt-2">
+		<input id="search" type="text" class="form-control-sm form-control mr-2" style="width:350px" value="" />
+		<button id="button_for_search" class="btn btn-sm mr-2">искать</button>
+		<a id="link_for_search_button" asp-controller="ADO" asp-action="Index" style="display:none"></a>
+		<label for="page-size" class="mr-2">Показывать по:</label>
+		<a id="link_for_page-size" asp-controller="ADO" asp-action="Index" style="display:none"></a>
+		<select class="form-control form-control-sm mr-2" style="width:60px" id="page-size" name="page-size">
+			<option selected value="20">20</option>
+			<option value="30">30</option>
+			<option value="50">50</option>
+		</select>
+		<nav id="pagination" aria-label="Список товаров">
+			<ul class="pagination pagination-sm justify-content-center">
+				<li class="page-item"><a id="first" class="page-link" href="@Url.Action("Index","ADO")"><<</a></li>
+				<li class="page-item"><a id="prev" class="page-link" href="@Url.Action("Index","ADO")">Предыдущая</a></li>
+				<li class="page-item"><a id="next" class="page-link" href="@Url.Action("Index","ADO")">Следующая</a></li>
+				<li class="page-item"><a id="last" class="page-link" href="@Url.Action("Index","ADO")">>></a></li>
+				<li><a id="select-page" class="page-link ml-2" href="@Url.Action("Index","ADO")">перейти</a></li>
+				<li class="px-2"><input class="form-control form-control-sm" type="text" id="page-number" value="1" style="width:60px" /></li>
+				<li><input type="text" readonly class="form-control-sm form-control-plaintext" style="width:10px" value="/" /></li>
+				<li><input id="total-pages" type="text" readonly class="form-control-sm form-control-plaintext" style="width:50px" value="@ViewBag.PagesCount" /></li>
+			</ul>
+		</nav>
+	</div>
+	@*<div class="container form-group form-inline mt-3">
+			<input id="search" type="text" class="form-control-sm form-control mr-2" style="width:350px" value="" />
+			<button id="button_for_search" class="btn btn-sm">искать</button>
+			<a id="link_for_search_button" asp-controller="ADO" asp-action="Index" style="display:none"></a>
+		</div>*@
+	<img id="loadImg" src="~/images/ajax-loader.gif" />
+	<div class="container-fluid main">
+		@RenderBody()
+	</div>
+	@*<div class="navbar navbar-expand-sm fixed-bottom" style="height:10px">
+			<div class="container">
+				<div id="navbarSupportedContent">
+					<span class="mx-auto align-middle copy"></span>
+				</div>
+			</div>
+		</div>*@
+	<script src="~/lib/jquery/dist/jquery.min.js"></script>
+	<script src="~/lib/jquery-ajax-unobtrusive/jquery.unobtrusive-ajax.min.js"></script>
+	<script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+	<script src="~/js/site.js"></script>
+	@RenderSection("Scripts", required: false)
+</body>
+</html>

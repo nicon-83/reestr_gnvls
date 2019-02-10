@@ -1,0 +1,138 @@
+﻿@* вид для страницы gv.qwerty.plus *@
+@model IEnumerable<ReestrGNVLS.Models.Reestr>
+@*<hr class="top" />*@
+
+@if (Model.Count() > 0)
+{
+	<table class="table table-striped table-sm" id="reserve-table">
+		<thead class="text-left align-text-bottom">
+			<tr>
+				<th scope="col" style="width: 15%">
+					Товар
+				</th>
+				<th scope="col">
+					Производитель
+				</th>
+				<th scope="col">
+					MHH
+				</th>
+				<th scope="col">
+					Серия
+				</th>
+				<th scope="col">
+					Штрихкод
+				</th>
+				<th scope="col" class="text-right">
+					НДС&nbsp;%
+				</th>
+				<th scope="col" class="money">
+					Зарегистрированная предельная отпускная цена производителя
+				</th>
+				<th scope="col" class="money">
+					Фактическая отпускная цена, установленная производителем, без НДС (рублей)
+				</th>
+				<th scope="col" class="money">
+					Фактическая отпускная цена, установленная организацией оптовой торговли, без НДС (рублей)
+				</th>
+				<th scope="col" class="money">
+					Суммарный размер фактических оптовых надбавок, установленных организациями оптовой торговли, в процентах %
+				</th>
+				<th scope="col" class="money">
+					Суммарный размер фактических оптовых надбавок, установленных организациями оптовой торговли, в рублях
+				</th>
+				<th scope="col" class="money">
+					Максимально допустимый процент оптовой наценки по региону %
+				</th>
+				<th scope="col" class="money">
+					Фактическая отпускная цена, установленная организацией оптовой торговли, с НДС (рублей)
+				</th>
+				<th scope="col" class="money">
+					Фактическая отпускная цена, установленная организацией розничной торговли, без НДС (рублей)
+				</th>
+				<th scope="col" class="money">
+					Размер фактической розничной надбавки, установленной организацией розничной торговли, в процентах %
+				</th>
+				<th scope="col" class="money">
+					Размер фактической розничной надбавки, установленной организацией розничной торговли, в рублях
+				</th>
+				<th scope="col" class="money">
+					Максимально допустимый процент розничной наценки по региону %
+				</th>
+				<th scope="col" class="money">
+					Фактическая отпускная цена, установленная организацией розничной торговли, c НДС (рублей)
+				</th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (var item in Model)
+			{
+				<tr>
+					<td>
+						@item.Name
+					</td>
+					<td>
+						@item.Pro
+					</td>
+					<td>
+						@item.Mhh
+					</td>
+					<td>
+						@item.Series
+					</td>
+					<td class="text-right">
+						@item.Barcode
+					</td>
+					<td class="text-right">
+						@item.Nds%
+					</td>
+					<td class="text-right">
+						@item.ProducerRegisteredPrice
+					</td>
+					<td class="text-right">
+						@item.ProducerRealPrice
+					</td>
+					<td class="text-right">
+						@item.PurchasePriceWithoutVAT
+					</td>
+					<td class="text-right">
+						@item.PremiumInPercentOpt%
+					</td>
+					<td class="text-right">
+						@item.PremiumInRubOpt
+					</td>
+					<td class="text-right">
+						@item.MaxOptPercent%
+					</td>
+					<td class="text-right">
+						@item.PurchasePrice
+					</td>
+					<td class="text-right">
+						@item.RetailPriceWithoutVAT
+					</td>
+					<td class="text-right">
+						@item.PremiumInPercentRetail%
+					</td>
+					<td class="text-right">
+						@item.PremiumInRubRetail
+					</td>
+					<td class="text-right">
+						@item.MaxRetailPercent%
+					</td>
+					<td class="text-right">
+						@item.RetailPrice
+					</td>
+				</tr>
+			}
+		</tbody>
+	</table>
+}
+<span id="total-pages-hidden" hidden>@ViewBag.PagesCount</span>
+
+@{
+	if (ViewBag.Message != null)
+	{
+		<p class="message">@ViewBag.Message</p>
+	}
+}
+
+<hr />

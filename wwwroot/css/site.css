@@ -1,0 +1,92 @@
+﻿
+body {
+	font-family: Arial, Helvetica, sans-serif;
+	/*width: 2200px;*/
+}
+
+.header {
+	/*position: sticky;
+	top: 0;*/
+}
+
+.site-pagination {
+	position: sticky;
+	top: 0;
+	background-color: white;
+	padding: 8px 15px;
+	margin: 0 !important;
+}
+
+.table {
+	font-size: 0.85rem;
+	/*width: 2200px;*/
+}
+
+	.table thead th {
+		font-weight: bold;
+		font-size: 0.8rem;
+		color: #4e4e4e;
+		position: sticky;
+		top: 46px;
+		background-color: #d5d9dc;
+	}
+
+.navbar,
+thead {
+	background-color: #C4C4C4;
+}
+
+.nav-link {
+	color: black;
+	font-weight: bold;
+}
+
+.copy {
+	padding: 10px 0;
+	font-size: 0.75rem;
+	height: 10px;
+}
+
+.pagination {
+	padding-bottom: 0;
+	margin-bottom: 0;
+}
+
+#last {
+	border-radius: 0 0.3rem 0.3rem 0;
+}
+
+#first {
+	border-radius: 0.3rem 0 0 0.3rem;
+}
+
+#select-page {
+	border-radius: 0.25rem;
+}
+
+#loadImg {
+	position: absolute;
+	z-index: 1000;
+	display: none
+}
+
+/*.money {
+	width: 5.4%;
+}*/
+
+.top {
+	margin-top: 0;
+}
+
+.login-page {
+	margin-top: 100px;
+}
+
+#logout-link {
+	position: fixed;
+	right: 16px;
+}
+
+.btn:hover {
+	background-color: darkgrey;
+}

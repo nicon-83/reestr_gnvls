@@ -1,0 +1,11 @@
+﻿@* Вид для вывода сообщений *@
+@{
+	Layout = null;
+}
+
+@{
+	if (ViewBag.Message != null)
+	{
+		<p class="message">@ViewBag.Message</p>
+	}
+}

@@ -1,0 +1,21 @@
+﻿@{
+	Layout = "~/Views/Shared/_LayoutLogin.cshtml";
+}
+@{
+	ViewData["Title"] = "Остатки ЖНВЛС";
+}
+
+<script>
+	window.location.href = "/Account/Login";
+</script>
+@*<a id="link" href="~/Account/Login" style="display:none"></a>
+	<script>
+		$(document).ready(function () {
+			let url = $("#link").prop("href");
+			window.location.href = url;
+		});
+	</script>*@
+
+<h5 class="mt-5">Необходимо авторизоваться</h5>
+<a class="badge badge-light mt-3" style="font-size: 1rem" href="/Account/Login">перейти на страницу авторизации</a>
+

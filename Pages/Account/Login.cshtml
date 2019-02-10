@@ -1,0 +1,39 @@
+@page
+@{
+	Layout = "~/Views/Shared/_LayoutLogin.cshtml";
+}
+@model LoginModel
+@{
+	ViewData["Title"] = "Остатки ЖНВЛС";
+}
+@*<h2 class="mt-5">Вход на сайт</h2>*@
+<p>
+	@if (ViewData["Message"] != null)
+	{
+		<hr>
+		@ViewData["Message"]
+	}
+</p>
+<div class="row login-page">
+	<div class="col-md-4">
+		<form method="post">
+			<div asp-validation-summary="All" class="text-danger"></div>
+			<div class="form-group">
+				<label asp-for="Input.Name"></label>
+				<input asp-for="Input.Name" class="form-control">
+				<span asp-validation-for="Input.Name" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="Input.Password"></label>
+				<input asp-for="Input.Password" class="form-control">
+				<span asp-validation-for="Input.Password" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<button type="submit" class="btn btn-default">Войти</button>
+			</div>
+		</form>
+	</div>
+</div>
+@section Scripts {
+	@await Html.PartialAsync("_ValidationScriptsPartial")
+}

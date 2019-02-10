@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>@ViewData["Title"]</title>
+	<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+	<div class="navbar navbar-expand-sm fixed-top" style="height:58px">
+		<div class="container">
+			<div id="navbarSupportedContent">
+				<ul class="nav navbar-nav mr-auto">
+					<li id="Index" class="nav-item" style="font-weight:bold">Остатки ЖНВЛС</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="container main">
+		@RenderBody()
+	</div>
+	<div class="navbar navbar-expand-sm fixed-bottom" style="height:30px">
+		<div class="container">
+			<div id="navbarSupportedContent">
+				<span class="mx-auto align-middle copy"></span>
+			</div>
+		</div>
+	</div>
+	<script src="~/lib/jquery/dist/jquery.min.js"></script>
+	<script src="~/lib/jquery-ajax-unobtrusive/jquery.unobtrusive-ajax.min.js"></script>
+	<script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+	<script src="~/js/site.js"></script>
+	@RenderSection("Scripts", required: false)
+</body>
+</html>
